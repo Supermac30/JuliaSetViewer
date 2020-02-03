@@ -7,8 +7,9 @@ var endR = 6; // end value in the reals
 var endI = 3; // end value in the imaginaries
 var uppR; // units per pixel in the reals
 var uppI; // units per pixel in the imaginaries
+var equation = "math.pow(at0, at0)"; // equation that is run
 function setup() {
-    createCanvas(500, 500);
+    createCanvas(400, 400);
     uppR = width/(endR-startR);
 	uppI = height/(endI-startI);
     console.log("A and D for iteration");
@@ -65,13 +66,13 @@ function test(a, b) {
 */
 
 k=3;
-error= 0.1; // max amount you can be off by
+error= 0.5; // max amount you can be off by
 function test(a, b) {
     var at0 = math.complex((a/uppR)+startR, (b/uppI)+startI);
     var at1;
     for (let i = 0; i < iteration; i++) {
         at1 = at0.clone();
-        at0 = math.cos(at0);
+        at0 = eval(equation);
         if (math.abs(modulus(at0)-modulus(at1)) <= error) {
           return i;
         }
@@ -82,6 +83,20 @@ function test(a, b) {
 function modulus(comp) {
     return math.abs(math.sqrt(comp.im*comp.im+comp.re*comp.re))
 }
+
+function editSite() {
+    var attribs = document.getElementById("attribs");
+	equation = attribs.elements[0].value;
+    iterations = parseInt(attribs.elements[1].value);
+    startR = parseFloat(attribs.elements[2].value);
+    endR = parseFloat(attribs.elements[3].value);
+    startI = parseFloat(attribs.elements[4].value);
+    endI = parseFloat(attribs.elements[5].value);
+    uppR = width/(endR-startR);
+	uppI = width/(endI-startI);
+    drawn = false;
+}
+
 /*
 function test(a, b) {
     var at = math.complex(0, 0);
