@@ -9,4 +9,4 @@ Created to analyse the functions I talked about in [here](https://funonabun.tk/B
 - You are able to filter out solutions to see patterns created by each one.
 - You can zoom in and out and change the resolution of the picture.
 
-All code is run on the clientside.
+All code is run on the client.
