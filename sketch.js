@@ -1,15 +1,16 @@
-var iteration = 40;
+var iteration = 30;
 var expo = 2;
 var drawn = false;
 var startR = 0; // start value in the reals
 var startI = -3; // start value in the imaginaries
 var endR = 6; // end value in the reals
 var endI = 3; // end value in the imaginaries
+var error = 0.1;
 var uppR; // units per pixel in the reals
 var uppI; // units per pixel in the imaginaries
-var equation = "math.pow(at0, at0)"; // equation that is run
+var equation = "math.divide(math.pow(math.add(math.log(10, z), 1), z), 10)"; // equation that is run
 function setup() {
-    createCanvas(400, 400);
+    createCanvas(500, 500);
     uppR = width/(endR-startR);
 	uppI = height/(endI-startI);
     console.log("A and D for iteration");
@@ -17,7 +18,6 @@ function setup() {
 }
 
 function draw() {
-    inp();
     if (!drawn) {
         drawn = true;
         for (let i = 0; i <= width; i++) {
@@ -29,27 +29,11 @@ function draw() {
     }
 }
 
-function inp() {
-    if (keyIsDown(65)) {
-        iteration -= 10;
-        drawn = false;
-        console.log("iteration: " + iteration);
-    }
-    if (keyIsDown(68)) {
-        iteration += 10;
-        drawn = false;
-        console.log("iteration: " + iteration);
-    }
-    if (keyIsDown(32)) {
-        k -= 0.001;
-        drawn = false;
-        console.log("expo: " + expo);
-    }
-}
+/*
 var error = 0.02; // max amount you can be off by
 var k = 10;
 var solutions = new Set();
-/*
+
 function test(a, b) {
     var at0 = math.complex((a/uppR)+startR, (b/uppI)+startI);
     var at1;
@@ -65,13 +49,12 @@ function test(a, b) {
 }
 */
 
-k=3;
-error= 0.5; // max amount you can be off by
 function test(a, b) {
     var at0 = math.complex((a/uppR)+startR, (b/uppI)+startI);
     var at1;
     for (let i = 0; i < iteration; i++) {
         at1 = at0.clone();
+		z = at0.clone();
         at0 = eval(equation);
         if (math.abs(modulus(at0)-modulus(at1)) <= error) {
           return i;
@@ -88,10 +71,11 @@ function editSite() {
     var attribs = document.getElementById("attribs");
 	equation = attribs.elements[0].value;
     iterations = parseInt(attribs.elements[1].value);
-    startR = parseFloat(attribs.elements[2].value);
-    endR = parseFloat(attribs.elements[3].value);
-    startI = parseFloat(attribs.elements[4].value);
-    endI = parseFloat(attribs.elements[5].value);
+    error = parseFloat(attribs.elements[2].value)
+    startR = parseFloat(attribs.elements[3].value);
+    endR = parseFloat(attribs.elements[4].value);
+    startI = parseFloat(attribs.elements[5].value);
+    endI = parseFloat(attribs.elements[6].value);
     uppR = width/(endR-startR);
 	uppI = width/(endI-startI);
     drawn = false;
