@@ -3,31 +3,35 @@
 	<head>
 		<script src="p5.js"></script>
 		<script src="math.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<meta charset="utf-8">
 	</head>
 	<body>
+		<h1 style="color: white">Julia Set Viewer</h1>
 		<p style="color: white">
-			Welcome to My Julia Set Viewer. Type in the equation to see the corrseponding fractal. A Julia Set of a function is defined to be the set of points such that repeated iteration under some starting complex value doesn't diverge to infinite. We can plot this on the complex plane below with the a white pixel where ever it diverges, and a black pixel where it converges. The darker the pixel the faster it converges. Look at <a href="https://funonabun.tk/BlogPosts/Infinite%20Recursion%20And%20It's%20Limits.html">my blog post</a> on fixed points to see how this iteration works and a future post on cool fractals to try.
+			Welcome to My Julia Set Viewer. Type in the equation to see the corrseponding fractal. The Julia Set of a function is defined to be the set of points such that repeated iteration under some starting complex value doesn't diverge to infinite. We can plot this on the complex plane below with the a white pixel where ever it diverges, and a black pixel where it converges. The darker the pixel the faster it converges. Look at <a href="https://funonabun.tk/BlogPosts/Infinite%20Recursion%20And%20It's%20Limits.html">my blog post</a> on fixed points to see how this iteration works and a future post on cool fractals to try.
 		</p>
-		<form id="attribs" style="margin: 1em">
-            <br><br><br><br>
-			Equation:
-			<input type="text" name="equation" value="math.divide(math.pow(math.add(math.log(10, z), 1), z), 10)"><br><br>
-            Iterations:
-            <input type="text" name="iterations" value="40"><br><br>
-            Error:
-            <input type="text" name="iterations" value="0.1"><br><br>
-            Starting Real Value:
-            <input type="text" name="startR" value="0" step="any"><br><br>
-            Ending Real Value:
-            <input type="text" name="endR" value="6" step="any"><br><br>
-            Starting Imaginary Value:
-            <input type="text" name="startI" value="-3" step="any"><br><br>
-            Ending Imaginary Value:
-            <input type="text" name="endI" value="3" step="any"><br><br>
-        </form>
-        <button style="margin:1em" onclick="editSite()">Calculate</button>
+		<div class="form-group">
+			<form id="attribs" style="margin: 1em">
+				<br>
+				Equation:
+				<input type="text" name="equation" value="math.divide(math.pow(math.add(math.log(10, z), 1), z), 10)"><br><br>
+	            Iterations:
+	            <input type="text" name="iterations" value="40"><br><br>
+	            Error:
+	            <input type="text" name="iterations" value="0.1"><br><br>
+	            Starting Real Value:
+	            <input type="text" name="startR" value="0" step="any"><br><br>
+	            Ending Real Value:
+	            <input type="text" name="endR" value="6" step="any"><br><br>
+	            Starting Imaginary Value:
+	            <input type="text" name="startI" value="-3" step="any"><br><br>
+	            Ending Imaginary Value:
+	            <input type="text" name="endI" value="3" step="any"><br><br>
+        	</form>
+        </div>
+        <button style="margin:1em" onclick="editSite()" type="button" class="btn btn-primary">Calculate</button>
 		<script src="sketch.js" class="fractal"></script>
 	</body>
 </html>
