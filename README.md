@@ -1,5 +1,5 @@
 # JuliaSetViewer
-A fractal viewer to visualise fixed points.
+A fractal viewer to visualise fixed points. Try it [here](https://funonabun.tk/Games/Julia%20Set%20Viewer/index.html).
 
 ## Purpose
 Created to analyse the functions I talked about in [here](https://funonabun.tk/BlogPosts/Infinite%20Recursion%20And%20It's%20Limits.html). Also they are seriously cool.
