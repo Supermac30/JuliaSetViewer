@@ -1,10 +1,10 @@
 # JuliaSetViewer
-A fractal viewer to visualize fixed points. Try it here [Julia Set Viewer (supermac30.github.io)](https://supermac30.github.io/Games/Julia Set Viewer/index.html).
+A fractal viewer to visualize fixed points. Try it here [Julia Set Viewer (supermac30.github.io)](https://supermac30.github.io./Games/Julia%20Set%20Viewer/index.html).
 
 ## Purpose
-Created to analyze the functions I talked about in [Infinite Recursion And It's Limits (supermac30.github.io)](https://supermac30.github.io/BlogPosts/Infinite Recursion And It's Limits.html). Also they are seriously cool.
+Given an arbitrary equation, this tool find the fixed points and plots them on the complex plain. The faster the convergence, the darker the plot.
 
-Here is a catalogue of interesting fractals created with this tool [Fractals and Stable Solutions (supermac30.github.io)](https://supermac30.github.io/BlogPosts/Fractals and Stable Solutions.html).
+Here is a catalogue of interesting fractals created with this tool [Fractals and Stable Solutions (supermac30.github.io)](https://supermac30.github.io./BlogPosts/Fractals%20and%20Stable%20Solutions.html).
 
 ## Functionality
 - After putting in a function a corresponding Julia set will be created.
